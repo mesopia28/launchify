@@ -1,11 +1,20 @@
 :root {
-    --bg: #f8fafc;
-    --primary: #6366f1; 
-    --accent: #22c55e;
-    --text: #0f172a;
-    --muted: #64748b;
-    --card: #ffffff;
+  --bg: #f8fafc;
+  --primary: #6366f1; 
+  --accent: #22c55e;
+  --text: #0f172a;
+  --muted: #64748b;
+  --card: #ffffff;
 }
+body.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --card: #020617;
+  --primary: #6366f1;
+  --accent: #22c55e;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -225,6 +234,119 @@ button:active {
     display: inline-block;
     margin-bottom: 10px;
 }
+/* Testimonials */
+.testimonials {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.slider {
+    position: relative;
+    max-width: 600px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial {
+    min-width: 100%;
+    opacity: 0.4;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.testimonial.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.testimonial h4 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.testimonial span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--primary);
+    z-index: 10;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+/* Dots */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #9ca3fa;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: var(--primary);
+}
+
+/* Dark mode support */
+body.dark .header {
+  background: rgba(2, 6, 23, 0.85);
+}
+body.dark .nav a {
+  color: var(--text);
+}
+body.dark .feature-card,
+body.dark .price-card,
+body.dark .faq-item {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+body.dark .testimonial {
+  background: #020617;
+  color: #e5e7eb;
+}
+.testimonial {
+  padding: 30px;
+  border-radius: 16px;
+  background: var(--card);
+}
+body.dark .contact-form input::placeholder,
+body.dark .contact-form textarea::placeholder {
+  color: #64748b;
+}
+
+
 /* FAQ */
 .faq-item {
     background: var(--card);
