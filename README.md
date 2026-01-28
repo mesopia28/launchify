@@ -13,7 +13,8 @@ A modern Saas landing page built with HTML, CSS, and JavaScript.
 -CSS3
 Vanilla JavaScript
 ## Live Demo
-https://mesopia28.github.io/lanchify/
+https://mesopia28.github.io/launchify/
 
 ---
 Built by Mesafint Tekletsadik
+
