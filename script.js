@@ -91,3 +91,56 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+// Testimonials Slider
+const testimonials = document.querySelectorAll(".testimonial");
+const slides = document.querySelector(".slides");
+const dotsContainer = document.querySelector(".dots");
+const prevBtn = document.querySelector(".arrow.left");
+const nextBtn = document.querySelector(".arrow.right");
+
+let index = 0;
+
+/* Create dots */
+testimonials.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+
+    dot.addEventListener("click", () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dot");
+
+function updateSlider() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+
+    testimonials.forEach(t => t.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+
+    testimonials[index].classList.add("active");
+    dots[index].classList.add("active");
+}
+
+function goToSlide(i) {
+    index = i;
+    updateSlider();
+}
+
+// Right arrow
+nextBtn.addEventListener("click", () => {
+    index = (index + 1) % testimonials.length;
+    updateSlider();
+});
+
+// Left arrow ✅ FIXED
+prevBtn.addEventListener("click", () => {
+    index = (index - 1 + testimonials.length) % testimonials.length;
+    updateSlider();
+});
+
+/* Auto slide */
+setInterval(() => {
+    index = (index + 1) % testimonials.length;
+    updateSlider();
+}, 5000);
